@@ -18,7 +18,7 @@ hal_client_domain(xiaomiparts, hal_motor)
 
 # Allow xiaomiparts read and write /data/data subdirectory
 allow xiaomiparts system_app_data_file:dir create_dir_perms;
-allow xiaomiparts system_app_data_file:{ 
+allow xiaomiparts system_app_data_file:{
   file
   lnk_file
 } create_file_perms;
@@ -35,3 +35,6 @@ allow xiaomiparts {
   sysfs_leds
   vendor_sysfs_graphics
 }:file rw_file_perms;
+
+# Allow xiaomiparts to write to mi_thermald
+allow xiaomiparts sysfs_thermal:file w_file_perms;
